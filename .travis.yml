@@ -7,3 +7,15 @@ before_install:
 
 script:
   - docker run -e CI=true priyojit/react-docker-demo npm run test -- --coverage
+
+deploy:
+  prover: "elasticbeanstalk"
+  region: "us-east-2"
+  app: "react-docker-demo"
+  env: "Reactdockerdemo-env"
+  bucket-name: "elasticbeanstalk-us-east-2-899973473745"
+  bucket-path: "react-docker-demo"
+  on:
+    branch: master
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_KEY
