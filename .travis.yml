@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t priyojit/react-docker-demo -f Dockerfile.dev .
+  - docker build -t priyojit/react-docker-demo -f Dockerfile .
 
 script:
   - docker run -e CI=true priyojit/react-docker-demo npm run test -- --coverage
