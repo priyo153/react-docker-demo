@@ -1,4 +1,6 @@
 sudo: required
+language: generic
+
 services:
   - docker
 
@@ -9,7 +11,7 @@ script:
   - docker run -e CI=true priyojit/react-docker-demo npm run test -- --coverage
 
 deploy:
-  prover: "elasticbeanstalk"
+  provider: "elasticbeanstalk"
   region: "us-east-2"
   app: "react-docker-demo"
   env: "Reactdockerdemo-env"
